@@ -16,7 +16,7 @@ router.post("/save", (req, res) => {
     const tweet = req.body
     knex("tweet").insert(tweet, "tweetid").then(ret => {
         res.send(ret)
-    }).cath(err => {
+    }).catch(err => {
         res.status(500).send(err)
         console.log(err)
     })

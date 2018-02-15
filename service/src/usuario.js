@@ -16,7 +16,7 @@ router.post("/save", (req, res) => {
     const usuario = req.body
     knex("usuario").insert(usuario, "usuarioid").then(ret => {
         res.send(ret)
-    }).cath(err => {
+    }).catch(err => {
         res.status(500).send(err)
         console.log(err)
     })
@@ -26,7 +26,7 @@ router.put("/save", (req, res) => {
     const usuario = req.body
     const usuarioid = req.body.usuarioid
     knex("usuario").update(usuario).where({ usuarioid })
-        .then(ret => res.send(ret)).catch(err => {
+        .then(ret => res.send("Updatado")).catch(err => {
             res.status(500).send(err)
             console.log(err)
         })
@@ -34,7 +34,7 @@ router.put("/save", (req, res) => {
 
 router.delete("/:usuarioid", (req, res) => {
     const usuarioid = req.params.usuarioid
-    knex("usuarios").del().where({ usuarioid })
+    knex("usuario").del().where({ usuarioid })
         .then(ret => res.send("usuario destruido")).catch(err => {
             res.status(500).send(err)
             console.log(err)
