@@ -61,7 +61,7 @@
 </template>
 
 <script>
-const { usuarioapi } = require("./api");
+const { usuarioapi } = require("./api")
 module.exports = {
   name: "usuario",
   created() {
