@@ -42,14 +42,14 @@
   </form>
 </div>
 
-  <div class="panel-block"> 
+    <div class="panel-block"> 
       <ul>
         <li v-for="u in usuarios" :key="u.usuarioid">
           <div class="columns">
-          <div class="column"> {{u.usuarionome}} </div>
-          <div class="column">
-              <button @click="usuario=u" class="button is-info">Editar</button>
-          </div>
+            <div class="column"> {{u.usuarionome}} </div>
+              <div class="column">
+                <button @click="usuario=u" class="button is-info">Editar</button>
+              </div>
             <div class="column">
               <button @click="delet(u)" class="button is-danger">Excluir</button>
             </div>
@@ -65,7 +65,7 @@ const { usuarioapi } = require("./api")
 module.exports = {
   name: "usuario",
   created() {
-    this.listusuario();
+    this.listusuario()
   },
   data() {
     return {
@@ -76,7 +76,7 @@ module.exports = {
         usuariodtnasc: "",
         usuariotelefone: ""
       }
-    };
+    }
   },
   methods: {
     dosave() {
@@ -88,20 +88,20 @@ module.exports = {
           usuarionome: "",
           usuariodtnasc: "",
           usuariotelefone: ""
-        };
-      });
+        }
+      })
     },
     listusuario() {
       usuarioapi.list().then(ret => (this.usuarios = ret.data));
     },
     delet(u) {
       usuarioapi.delet(u.usuarioid).then(ret => {
-        alert("Usuário excluído");
-        this.listusuario();
-      });
+        alert("Usuário excluído")
+        this.listusuario()
+      })
     }
   }
-};
+}
 </script>
 
 <style>
